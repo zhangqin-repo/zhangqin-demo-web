@@ -34,4 +34,94 @@
         return _datagrid;
     }
 	
+    /*datagrid 常用方法封装 不显示直接使用 $('').datagrid('method') 改成 $().zdatagrid('method')  方便维护替换*/
+	$.fn.zdatagrid.methods = {
+		getRows : function(jq) {
+			return $(jq[0]).datagrid('getRows');
+		},
+		getChecked : function(jq) {
+			return $(jq[0]).datagrid('getChecked');
+		},
+		getSelected : function(jq) {
+			return $(jq[0]).datagrid('getSelected');
+		},
+		options : function(jq) {
+			return $(jq[0]).datagrid('options');
+		},
+		loadData : function(jq, arg) {
+			return $(jq[0]).datagrid('loadData', arg);
+		},
+		load : function(jq, arg) {
+			if (arg) {
+				return $(jq[0]).datagrid('load', arg);
+			} else {
+				return $(jq[0]).datagrid('load');
+			}
+		},
+		resize : function(jq, arg) {
+			if (arg) {
+				return $(jq[0]).datagrid('resize', arg);
+			} else {
+				return $(jq[0]).datagrid('resize');
+			}
+		},
+		getPanel : function(jq) {
+			return $(jq[0]).datagrid('getPanel');
+		},
+		appendRow : function(jq, arg) {
+			return $(jq[0]).datagrid('appendRow', arg);
+		},
+		updateRow : function(jq, arg) {
+			return $(jq[0]).datagrid('updateRow', arg);
+		},
+		acceptChanges : function(jq) {
+			return $(jq[0]).datagrid('acceptChanges');
+		},
+		refreshRow : function(jq, arg) {
+			return $(jq[0]).datagrid('refreshRow', arg);
+		},
+		insertRow : function(jq, arg) {
+			return $(jq[0]).datagrid('insertRow', arg);
+		},
+		deleteRow : function(jq, arg) {
+			return $(jq[0]).datagrid("deleteRow", arg);
+		},
+		selectRow : function(jq, arg) {
+			return $(jq[0]).datagrid('selectRow', arg)
+		},
+		checkRow : function(jq, arg) {
+			return $(jq[0]).datagrid('checkRow', arg)
+		},
+		getSelections : function(jq, arg) {
+			return $(jq[0]).datagrid('getSelections')
+		},
+		reloadFooter : function(jq, arg) {
+			return $(jq[0]).datagrid('reloadFooter', arg)
+		},
+		beginEdit : function(jq, arg) {
+			return $(jq[0]).datagrid('beginEdit', arg)
+		},
+		endEdit : function(jq, arg) {
+			return $(jq[0]).datagrid("endEdit", arg);
+		},
+		getRowIndex : function(jq, arg) {
+			return $(jq[0]).datagrid("getRowIndex", arg);
+		},
+		getEditor : function(jq, arg) {
+			return $(jq[0]).datagrid("getEditor", arg);
+		},
+		getEditors : function(jq, arg) {
+			return $(jq[0]).datagrid("getEditors", arg);
+		},
+		keyCtr : function(jq, arg) {
+			return $(jq[0]).datagrid('keyCtr')
+		},
+		textChange : function(jq, arg) {
+			return $(jq[0]).datagrid('textChange');
+		},
+		inputEventBind : function(jq, arg) {
+			return $(jq[0]).datagrid('inputEventBind');
+		}
+	}
+	
 })(jQuery);

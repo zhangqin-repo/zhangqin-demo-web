@@ -6,6 +6,8 @@
 <!-- easyui -->
 <link rel="stylesheet" href="${ctx}/static/libs/easyui/themes/default/easyui.css">
 
+<link rel="stylesheet" href="${ctx}/static/css/flex.css">
+
 <!-- jquery -->
 <script src="${ctx}/static/libs/jquery/jquery.min.js"></script>
 <!-- easyui -->

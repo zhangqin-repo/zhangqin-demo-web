@@ -26,13 +26,19 @@
 		</dependencies>
 	</dependencyManagement>
 	
-		<!-- 依赖 -->
+	<!-- 依赖 -->
 	<dependencies>
 		<!-- zhangqin -->
 		<dependency>
 			<groupId>com.zhangqin.framework</groupId>
 			<artifactId>zhangqin-framework-web</artifactId>
 			<version>${zhangqin.framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.zhangqin.demo</groupId>
+			<artifactId>zhangqin-demo-sys-api</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	

@@ -1,0 +1,19 @@
+.fb{
+    display: flex;
+}
+
+.fb-inline{
+    display: inline-flex;
+}
+
+.fb-row{
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+}
+
+.fb-col{
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction:column;
+}
