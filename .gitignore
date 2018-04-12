@@ -2,3 +2,6 @@
 .classpath
 .settings
 */.settings/
+/target/
+*/target/
+.DS_Store

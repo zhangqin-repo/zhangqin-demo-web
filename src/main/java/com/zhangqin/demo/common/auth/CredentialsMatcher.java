@@ -4,6 +4,8 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 
+import com.zhangqin.framework.web.common.auth.TenantUsernamePasswordCaptchaToken;
+
 public class CredentialsMatcher extends SimpleCredentialsMatcher {
 
 	/**
@@ -17,7 +19,8 @@ public class CredentialsMatcher extends SimpleCredentialsMatcher {
 			return true;
 		}
 		// 转换Token
-		UsernamePasswordCaptchaToken utoken = (UsernamePasswordCaptchaToken) token;
+		TenantUsernamePasswordCaptchaToken utoken = (TenantUsernamePasswordCaptchaToken) token;
+		
 		// 获得用户输入的密码
 		String inPassword = new String(utoken.getPassword());
 

@@ -8,6 +8,11 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
+/**
+ * 用户登录授权
+ * @author zhangqin
+ *
+ */
 public class AuthRealm extends AuthorizingRealm {
 
 	/**

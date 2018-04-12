@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
-import com.google.common.collect.Sets;
 import com.zhangqin.framework.web.gpe.GpeRealm;
 import com.zhangqin.framework.web.gpe.bean.result.UserColumnSetting;
 
