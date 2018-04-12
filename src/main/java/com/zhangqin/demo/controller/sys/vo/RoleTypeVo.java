@@ -3,6 +3,7 @@ package com.zhangqin.demo.controller.sys.vo;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zhangqin.framework.web.gpe.annotation.GpeField;
 import com.zhangqin.framework.web.gpe.annotation.GpeHeader;
 
@@ -49,6 +50,7 @@ public class RoleTypeVo implements Serializable {
 	 * 创建时间
 	 */
 	@GpeField
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createTime;
 	/**
 	 * 创建人
@@ -59,6 +61,10 @@ public class RoleTypeVo implements Serializable {
 	 */
 	@GpeField
 	private String createUserName;
+	
+	@GpeField(title="是否删除")
+	private Deleted deleted;
+
 
 	public String getId() {
 		return id;
@@ -124,4 +130,12 @@ public class RoleTypeVo implements Serializable {
 		this.createUserName = createUserName;
 	}
 
+	public Deleted getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Deleted deleted) {
+		this.deleted = deleted;
+	}
+	
 }

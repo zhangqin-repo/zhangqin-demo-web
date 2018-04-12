@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>角色类型</title>
+	<title>贸易协议单</title>
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 </head>
 <body class="fb fb-col">
@@ -15,16 +15,16 @@
 	
 	<div id="search">
 		<form id="searchForm">
-			<input id="name" name="name"  placeholder="请输入角色类型名称查询">
+			<input id="formNo" name="formNo"  placeholder="请输入单据编号">
 		</form>
 	</div>
 	
-	<div id="roleTypeGrid" style="height:500px;"></div>
+	<div id="tradeProtocolGrid" style="height:500px;"></div>
 	
 	<script type="text/javascript">
-		$("#roleTypeGrid").gpedatagrid({
+		$("#tradeProtocolGrid").gpedatagrid({
 			method: "post",
-			url : contextPath + '/api/sys/roleType/findListPage',
+			url : contextPath + '/api/adj/tradeProtocolForm/findListPage',
 			pagination : true, //开启分页
 			checkbox : false, // 是否显示checkbox全选效果
 			settingBtn : "settingBtn", // 列设置按钮ID
@@ -34,9 +34,9 @@
 
 		// 查询方法
 		function search() {
-			$("#roleTypeGrid").gpedatagrid("options").queryParams = $("#searchForm").serializeObject();
-			$("#roleTypeGrid").gpedatagrid("options").method = "post";
-			$("#roleTypeGrid").gpedatagrid("load");
+			$("#tradeProtocolGrid").gpedatagrid("options").queryParams = $("#searchForm").serializeObject();
+			$("#tradeProtocolGrid").gpedatagrid("options").method = "post";
+			$("#tradeProtocolGrid").gpedatagrid("load");
 		}
 	</script>
 </body>

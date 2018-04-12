@@ -11,7 +11,7 @@ public class IndexController {
 	 */
 	public static final String VIEW_INDEX = "index";
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 		return VIEW_INDEX;
 	}

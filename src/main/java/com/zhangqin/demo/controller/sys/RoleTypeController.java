@@ -1,14 +1,15 @@
 package com.zhangqin.demo.controller.sys;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.zhangqin.demo.controller.sys.vo.Deleted;
 import com.zhangqin.demo.controller.sys.vo.RoleTypeVo;
 import com.zhangqin.demo.sys.api.RoleTypeApi;
 import com.zhangqin.demo.sys.dto.RoleTypeDto;
@@ -37,10 +38,14 @@ public class RoleTypeController {
 	 */
 	@GpeRequestMapping(viewObject = RoleTypeVo.class)
 	@RequestMapping(value = "/findListPage", method = RequestMethod.POST)
+	@ResponseBody
 	public PageInfo<RoleTypeVo> findListPage(RoleTypeQo qo){
 		PageInfo<RoleTypeDto> page = roleTypeApi.findListPage(qo);
 		List<RoleTypeDto> dtoList = page.getList();
 		List<RoleTypeVo> voList = BeanMapper.mapList(dtoList, RoleTypeVo.class);
+		voList.forEach(action->{
+			action.setDeleted(Deleted.NO);
+		});
 		
 		PageInfo<RoleTypeVo> newPage = new PageInfo<RoleTypeVo>();
 		BeanMapper.copy(page, newPage);
