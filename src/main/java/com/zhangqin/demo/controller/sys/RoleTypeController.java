@@ -1,5 +1,6 @@
 package com.zhangqin.demo.controller.sys;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,7 @@ public class RoleTypeController {
 		List<RoleTypeVo> voList = BeanMapper.mapList(dtoList, RoleTypeVo.class);
 		voList.forEach(action->{
 			action.setDeleted(Deleted.NO);
+			action.setDecimalTest(BigDecimal.valueOf(0));
 		});
 		
 		PageInfo<RoleTypeVo> newPage = new PageInfo<RoleTypeVo>();

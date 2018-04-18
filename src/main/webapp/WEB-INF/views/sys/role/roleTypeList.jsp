@@ -11,6 +11,8 @@
 	<div id="toolbar">
 		<a href="javascript:search(0)" id="searchBtn">查询</a>
 		<a href="javascript:void(0)" id="exportBtn">导出</a>
+		<a href="javascript:void(0)" id="printBtn">打印</a>
+		<a href="javascript:void(0)" id="settingBtn">设置</a>
 	</div>
 	
 	<div id="search">
@@ -21,23 +23,6 @@
 	
 	<div id="roleTypeGrid" style="height:500px;"></div>
 	
-	<script type="text/javascript">
-		$("#roleTypeGrid").gpedatagrid({
-			method: "post",
-			url : contextPath + '/api/sys/roleType/findListPage',
-			pagination : true, //开启分页
-			checkbox : false, // 是否显示checkbox全选效果
-			settingBtn : "settingBtn", // 列设置按钮ID
-			exportBtn : "exportBtn", // 导出按钮ID
-			printBtn : "printBtn" // 打印按钮ID
-		});
-
-		// 查询方法
-		function search() {
-			$("#roleTypeGrid").gpedatagrid("options").queryParams = $("#searchForm").serializeObject();
-			$("#roleTypeGrid").gpedatagrid("options").method = "post";
-			$("#roleTypeGrid").gpedatagrid("load");
-		}
-	</script>
+	<script type="text/javascript" src="${ctx}/static/js/views/sys/role/roleTypeList.js"></script>
 </body>
 </html>

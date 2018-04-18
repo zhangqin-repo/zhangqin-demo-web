@@ -1,6 +1,7 @@
 package com.zhangqin.demo.controller.sys.vo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -64,6 +65,9 @@ public class RoleTypeVo implements Serializable {
 	
 	@GpeField(title="是否删除")
 	private Deleted deleted;
+	
+	@GpeField(title="BigDecimal测试")
+	private BigDecimal decimalTest;
 
 
 	public String getId() {
@@ -137,5 +141,15 @@ public class RoleTypeVo implements Serializable {
 	public void setDeleted(Deleted deleted) {
 		this.deleted = deleted;
 	}
+
+	public BigDecimal getDecimalTest() {
+		return decimalTest;
+	}
+
+	public void setDecimalTest(BigDecimal decimalTest) {
+		this.decimalTest = decimalTest;
+	}
+	
+	
 	
 }

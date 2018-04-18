@@ -22,6 +22,9 @@
 <script src="${ctx}/static/component/gpe/gpe-colsetting.js"></script>
 <script src="${ctx}/static/component/gpe/gpe-datagrid-dnd.js"></script>
 
+<script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="${ctx}/static/component/jqprint.js"></script>
+
 <script type="text/javascript">
 	var contextPath = '${ctx}';
 </script>

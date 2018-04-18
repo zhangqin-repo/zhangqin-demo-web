@@ -14,9 +14,9 @@ var _gpe_setting_setting;
 // 定义Class
 function GpeSettingClass(url) {
 	var path = getBasePath();
-	_gpe_setting_get_url = url + '/gpe/findColSetting?timestamp=' + new Date().getTime();
-	_gpe_setting_save_url = path + '/gpesave';
-	_gpe_setting_restore_url = path + '/gperestore';
+	_gpe_setting_get_url = url + '/gpe/findColumnSetting?timestamp=' + new Date().getTime();
+	_gpe_setting_save_url = url + '/gpe/saveColumnSetting';
+	_gpe_setting_restore_url = url + '/gpe/restoreColumnSetting';
 	_gpe_setting_datagrid_id = "gpeUserSettingGrid"
 	// _gpe_setting_grid_class = new GridClass();
 	// _gpe_setting_grid_class.setGridName(_gpe_setting_datagrid_id);

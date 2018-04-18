@@ -18,8 +18,8 @@
 		var _exportUrl = param.url + '/gpe/export?timestamp=' + new Date().getTime();
 		
 		// 开启列设置功能
-		if(_param.cols){
-			$("#" + _param.cols).on("click", function() {
+		if(_param.settingBtn){
+			$("#"+_param.settingBtn).on("click", function() {
 				parent.layer.open({
 					type : 1,
 					title : "列设置",
@@ -32,7 +32,6 @@
 				var gpeSettingClass = new GpeSettingClass(param.url);
 				gpeSettingClass.initGpeParams(param);
 				gpeSettingClass.initGpeDataGrid();
-				//gpeSettingClass.initGpeDataGridCallback(callback);
 			});
 		}
 		
@@ -56,6 +55,32 @@
 						delete queryParams.rows;
 						delete queryParams.page;
 						exportData(queryParams,_exportUrl);
+						layer.close(index);
+					}
+				});
+			});
+		}
+		
+		// 开启打印功能
+		if(_param.printBtn){
+			$("#" + _param.printBtn).on("click", function() {
+				var index = layer.msg('打印选项', {
+					time : 1000 * 60 * 60,
+					btn : [ '打印当前页', '打印所有页' ],
+					yes: function(index){
+						var options = $(_this[0]).datagrid('options');
+						var queryParams = options.queryParams;
+						queryParams.rows = options.pageSize;
+						queryParams.page = options.pageNumber;
+						
+						printPreview(queryParams,param.url);
+						layer.close(index);
+					},
+					btn2: function(){
+						var queryParams = $(_this[0]).datagrid('options').queryParams;
+						delete queryParams.rows;
+						delete queryParams.page;
+						printPreview(queryParams,param.url);
 						layer.close(index);
 					}
 				});
@@ -118,96 +143,96 @@
 		return $(this);
 	}
 	
-	
-    /*datagrid 常用方法封装 不显示直接使用 $('').datagrid('method') 改成 $().gpedatagrid('method')  方便维护替换*/
-	$.fn.gpedatagrid.methods = {
-		getRows : function(jq) {
-			return $(jq[0]).datagrid('getRows');
-		},
-		getChecked : function(jq) {
-			return $(jq[0]).datagrid('getChecked');
-		},
-		getSelected : function(jq) {
-			return $(jq[0]).datagrid('getSelected');
-		},
-		options : function(jq) {
-			return $(jq[0]).datagrid('options');
-		},
-		loadData : function(jq, arg) {
-			return $(jq[0]).datagrid('loadData', arg);
-		},
-		load : function(jq, arg) {
-			if (arg) {
-				return $(jq[0]).datagrid('load', arg);
-			} else {
-				return $(jq[0]).datagrid('load');
-			}
-		},
-		resize : function(jq, arg) {
-			if (arg) {
-				return $(jq[0]).datagrid('resize', arg);
-			} else {
-				return $(jq[0]).datagrid('resize');
-			}
-		},
-		getPanel : function(jq) {
-			return $(jq[0]).datagrid('getPanel');
-		},
-		appendRow : function(jq, arg) {
-			return $(jq[0]).datagrid('appendRow', arg);
-		},
-		updateRow : function(jq, arg) {
-			return $(jq[0]).datagrid('updateRow', arg);
-		},
-		acceptChanges : function(jq) {
-			return $(jq[0]).datagrid('acceptChanges');
-		},
-		refreshRow : function(jq, arg) {
-			return $(jq[0]).datagrid('refreshRow', arg);
-		},
-		insertRow : function(jq, arg) {
-			return $(jq[0]).datagrid('insertRow', arg);
-		},
-		deleteRow : function(jq, arg) {
-			return $(jq[0]).datagrid("deleteRow", arg);
-		},
-		selectRow : function(jq, arg) {
-			return $(jq[0]).datagrid('selectRow', arg)
-		},
-		checkRow : function(jq, arg) {
-			return $(jq[0]).datagrid('checkRow', arg)
-		},
-		getSelections : function(jq, arg) {
-			return $(jq[0]).datagrid('getSelections')
-		},
-		reloadFooter : function(jq, arg) {
-			return $(jq[0]).datagrid('reloadFooter', arg)
-		},
-		beginEdit : function(jq, arg) {
-			return $(jq[0]).datagrid('beginEdit', arg)
-		},
-		endEdit : function(jq, arg) {
-			return $(jq[0]).datagrid("endEdit", arg);
-		},
-		getRowIndex : function(jq, arg) {
-			return $(jq[0]).datagrid("getRowIndex", arg);
-		},
-		getEditor : function(jq, arg) {
-			return $(jq[0]).datagrid("getEditor", arg);
-		},
-		getEditors : function(jq, arg) {
-			return $(jq[0]).datagrid("getEditors", arg);
-		},
-		keyCtr : function(jq, arg) {
-			return $(jq[0]).datagrid('keyCtr')
-		},
-		textChange : function(jq, arg) {
-			return $(jq[0]).datagrid('textChange');
-		},
-		inputEventBind : function(jq, arg) {
-			return $(jq[0]).datagrid('inputEventBind');
-		}
-	}
+//	
+//    /*datagrid 常用方法封装 不显示直接使用 $('').datagrid('method') 改成 $().gpedatagrid('method')  方便维护替换*/
+//	$.fn.gpedatagrid.methods = {
+//		getRows : function(jq) {
+//			return $(jq[0]).datagrid('getRows');
+//		},
+//		getChecked : function(jq) {
+//			return $(jq[0]).datagrid('getChecked');
+//		},
+//		getSelected : function(jq) {
+//			return $(jq[0]).datagrid('getSelected');
+//		},
+//		options : function(jq) {
+//			return $(jq[0]).datagrid('options');
+//		},
+//		loadData : function(jq, arg) {
+//			return $(jq[0]).datagrid('loadData', arg);
+//		},
+//		load : function(jq, arg) {
+//			if (arg) {
+//				return $(jq[0]).datagrid('load', arg);
+//			} else {
+//				return $(jq[0]).datagrid('load');
+//			}
+//		},
+//		resize : function(jq, arg) {
+//			if (arg) {
+//				return $(jq[0]).datagrid('resize', arg);
+//			} else {
+//				return $(jq[0]).datagrid('resize');
+//			}
+//		},
+//		getPanel : function(jq) {
+//			return $(jq[0]).datagrid('getPanel');
+//		},
+//		appendRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('appendRow', arg);
+//		},
+//		updateRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('updateRow', arg);
+//		},
+//		acceptChanges : function(jq) {
+//			return $(jq[0]).datagrid('acceptChanges');
+//		},
+//		refreshRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('refreshRow', arg);
+//		},
+//		insertRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('insertRow', arg);
+//		},
+//		deleteRow : function(jq, arg) {
+//			return $(jq[0]).datagrid("deleteRow", arg);
+//		},
+//		selectRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('selectRow', arg)
+//		},
+//		checkRow : function(jq, arg) {
+//			return $(jq[0]).datagrid('checkRow', arg)
+//		},
+//		getSelections : function(jq, arg) {
+//			return $(jq[0]).datagrid('getSelections')
+//		},
+//		reloadFooter : function(jq, arg) {
+//			return $(jq[0]).datagrid('reloadFooter', arg)
+//		},
+//		beginEdit : function(jq, arg) {
+//			return $(jq[0]).datagrid('beginEdit', arg)
+//		},
+//		endEdit : function(jq, arg) {
+//			return $(jq[0]).datagrid("endEdit", arg);
+//		},
+//		getRowIndex : function(jq, arg) {
+//			return $(jq[0]).datagrid("getRowIndex", arg);
+//		},
+//		getEditor : function(jq, arg) {
+//			return $(jq[0]).datagrid("getEditor", arg);
+//		},
+//		getEditors : function(jq, arg) {
+//			return $(jq[0]).datagrid("getEditors", arg);
+//		},
+//		keyCtr : function(jq, arg) {
+//			return $(jq[0]).datagrid('keyCtr')
+//		},
+//		textChange : function(jq, arg) {
+//			return $(jq[0]).datagrid('textChange');
+//		},
+//		inputEventBind : function(jq, arg) {
+//			return $(jq[0]).datagrid('inputEventBind');
+//		}
+//	}
 	
 	// 导出数据
 	function exportData(params,url){
@@ -226,6 +251,46 @@
 		});
 		exportForm.appendTo('body').submit();
 		exportForm.remove();
+	}
+	
+	// 打印预览
+	function printPreview(queryParams,url){
+		var findPrintHeaderUrl = url + '/gpe/findPrintHeader?timestamp=' + new Date().getTime();
+		var findPrintListUrl = url + '/gpe/findPrintList?timestamp=' + new Date().getTime();
+		
+		var container = $("<div style='position:relative;top:-100000px;left:-100000px;'></div>").appendTo("body");
+		var preview = $("<div></div>").appendTo(container);
+		
+		// 请求
+		$_fn.ajax({
+			method : 'get',
+			url : findPrintHeaderUrl,
+			async : false,
+			data : {}
+		}, function(result) {
+			if (result.code == 0) {
+				// 普通列信息
+				var columns = result.data.columns;
+				// 冻结列信息
+				var frozenColumns = result.data.frozenColumns;
+				// 显示打印网格
+				$(preview).datagrid({
+					method : 'post',
+					align : 'center',
+					rownumbers : true,
+					pagination : false,
+					url : findPrintListUrl,
+					queryParams : queryParams,
+					columns : columns,
+					frozenColumns : frozenColumns,
+					onLoadSuccess : function(){
+						container.css({ top: "", left: "" });
+						container.jqprint();
+						container.remove();
+					}
+				});
+			}
+		});
 	}
 	
 })(jQuery);
