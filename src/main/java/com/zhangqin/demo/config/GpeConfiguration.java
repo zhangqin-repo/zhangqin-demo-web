@@ -3,9 +3,9 @@ package com.zhangqin.demo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.zhangqin.framework.gpe.GpeGlobalPropertyBean;
+import com.zhangqin.framework.gpe.enums.TextAlign;
 import com.zhangqin.framework.web.gpe.GpeFieldPropertyConfigurer;
-import com.zhangqin.framework.web.gpe.bean.GpeGlobalPropertyBean;
-import com.zhangqin.framework.web.gpe.enums.TextAlign;
 
 @Configuration
 public class GpeConfiguration {

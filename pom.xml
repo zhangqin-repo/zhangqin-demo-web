@@ -9,7 +9,7 @@
 	<!-- 属性 -->
 	<properties>
 		<java.version>1.8</java.version>
-		<zhangqin.framework.version>0.0.1-SNAPSHOT</zhangqin.framework.version>
+		<zhangqin.framework.version>0.0.2-SNAPSHOT</zhangqin.framework.version>
 		<project.version>0.0.1-SNAPSHOT</project.version>
 	</properties>
 	

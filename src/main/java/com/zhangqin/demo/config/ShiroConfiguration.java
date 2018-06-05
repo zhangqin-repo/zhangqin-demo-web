@@ -45,7 +45,11 @@ public class ShiroConfiguration {
 		return bean;
 	}
 
-	// 配置核心安全事务管理器
+	/**
+	 * 配置核心安全事务管理器
+	 * @param authRealm
+	 * @return
+	 */
 	@Bean(name = "securityManager")
 	public SecurityManager securityManager(@Qualifier("authRealm") AuthRealm authRealm) {
 		DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
