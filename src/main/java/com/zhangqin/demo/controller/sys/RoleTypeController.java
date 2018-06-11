@@ -6,21 +6,16 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
-import com.zhangqin.demo.controller.sys.vo.ProductCodeExcel;
 import com.zhangqin.demo.sys.api.RoleTypeApi;
 import com.zhangqin.demo.sys.dto.RoleTypeDto;
 import com.zhangqin.demo.sys.qo.RoleTypeQo;
 import com.zhangqin.demo.sys.vo.RoleTypeVo;
-import com.zhangqin.framework.common.dubbo.UserSelector;
 import com.zhangqin.framework.common.utils.BeanMapper;
 import com.zhangqin.framework.web.gpe.annotation.GpeRequestMapping;
-import com.zhangqin.framework.web.importer.ExcelImporter;
 
 /**
  * 角色类型Controller
@@ -34,7 +29,7 @@ public class RoleTypeController {
 	/**
 	 * 角色类型Api接口
 	 */
-	@Reference
+	//@Reference
 	private RoleTypeApi roleTypeApi;
 	
 	/**
@@ -56,12 +51,5 @@ public class RoleTypeController {
 		BeanMapper.copy(page, newPage);
 		newPage.setList(voList);
 		return newPage;
-	}
-	
-	public List<RoleTypeVo> importExcel(@RequestParam("file") MultipartFile file){
-		ExcelImporter<ProductCodeExcel> importer = new ExcelImporter<ProductCodeExcel>();
-		importer.importData(file);
-		
-		return null;
 	}
 }

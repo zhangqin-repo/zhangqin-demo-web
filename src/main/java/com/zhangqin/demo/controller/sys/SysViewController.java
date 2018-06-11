@@ -18,4 +18,12 @@ public class SysViewController {
 	public String toBrandIndex(){
 		return "/sys/role/roleTypeList";
 	}
+	
+	/**
+	 * 跳转到品牌首页
+	 */
+	@RequestMapping(value="dict/index")
+	public String toDictIndex(){
+		return "/sys/dict/dictList";
+	}
 }

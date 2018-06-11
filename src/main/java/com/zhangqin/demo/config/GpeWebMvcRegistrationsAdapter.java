@@ -6,8 +6,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExc
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import com.zhangqin.framework.web.gpe.config.GpeRequestMappingHandlerMapping;
-import com.zhangqin.framework.web.gpe.handler.GpeRequestMappingHandlerAdapter;
+import com.zhangqin.framework.web.core.RequestMappingHandlerAdapterPlus;
+import com.zhangqin.framework.web.core.RequestMappingHandlerMappingPlus;
 
 
 /**
@@ -20,13 +20,12 @@ public class GpeWebMvcRegistrationsAdapter implements WebMvcRegistrations {
 
 	@Override
 	public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
-		return new GpeRequestMappingHandlerMapping();
+		return new RequestMappingHandlerMappingPlus();
 	}
 
 	@Override
 	public RequestMappingHandlerAdapter getRequestMappingHandlerAdapter() {
-		// TODO Auto-generated method stub
-		return new GpeRequestMappingHandlerAdapter();
+		return new RequestMappingHandlerAdapterPlus();
 	}
 
 	@Override
