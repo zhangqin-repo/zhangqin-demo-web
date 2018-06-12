@@ -10,6 +10,7 @@ var route = {
 		}
 	}
 }
+
 var page = {
 	dg : $("#dictGrid"), // 网格对象
 	initDom : function() {
@@ -31,8 +32,8 @@ var page = {
 	},
 	search : function() {
 		var params = {
-			dictCode : '01',
-			dictName : '支付宝',
+			typeCode : '01',
+			typeName : '支付宝',
 			rules : [ {
 				field : "dictCode",
 				rule : "EQ"

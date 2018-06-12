@@ -28,7 +28,7 @@ public class OnceRequestInterceptor implements HandlerInterceptor {
 //			TenantSelector.setTenantId(userInfo.getTenantId());
 //			UserSelector.setUserId(userInfo.getId());
 //		}
-		UserSelector.setUserId("001");
+		UserSelector.setUserId("1869def2667611e899b400163e0a9115");
 		return true;
 	}
 

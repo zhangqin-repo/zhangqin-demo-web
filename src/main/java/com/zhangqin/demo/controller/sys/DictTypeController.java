@@ -12,6 +12,7 @@ import com.github.pagehelper.PageInfo;
 import com.zhangqin.demo.sys.api.DictTypeApi;
 import com.zhangqin.demo.sys.qo.DictTypeQO;
 import com.zhangqin.demo.sys.vo.dict.DictTypeVO;
+import com.zhangqin.framework.web.common.controller.BaseGeneralController;
 import com.zhangqin.framework.web.gpe.annotation.GpeRequestMapping;
 
 /**
@@ -21,7 +22,7 @@ import com.zhangqin.framework.web.gpe.annotation.GpeRequestMapping;
  */
 @RestController
 @RequestMapping("api/sys/dict")
-public class DictTypeController {
+public class DictTypeController extends BaseGeneralController {
 	/**
 	 * 字典类型Api
 	 */

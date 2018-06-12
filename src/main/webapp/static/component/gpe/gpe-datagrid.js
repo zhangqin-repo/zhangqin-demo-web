@@ -1,25 +1,25 @@
 (function($) {
-	$.extend($.fn.datagrid.defaults, {
-		loader : function(_86f, _870, _871) {
-			var opts = $(this).datagrid("options");
-			if (!opts.url) {
-				return false;
-			}
-			$.ajax({
-				type : opts.method,
-				url : opts.url,
-				data : JSON.stringify(_86f),
-				dataType : "json",
-				contentType : "application/json",
-				success : function(data) {
-					_870(data);
-				},
-				error : function() {
-					_871.apply(this, arguments);
-				}
-			});
-		}
-	});
+//	$.extend($.fn.datagrid.defaults, {
+//		loader : function(_86f, _870, _871) {
+//			var opts = $(this).datagrid("options");
+//			if (!opts.url) {
+//				return false;
+//			}
+//			$.ajax({
+//				type : opts.method,
+//				url : opts.url,
+//				data : JSON.stringify(_86f),
+//				dataType : "json",
+//				contentType : "application/json",
+//				success : function(data) {
+//					_870(data);
+//				},
+//				error : function() {
+//					_871.apply(this, arguments);
+//				}
+//			});
+//		}
+//	});
     
 	// gpedatagrid
 	$.fn.gpedatagrid = function(param, arg) {
@@ -183,13 +183,13 @@
 		loadData : function(jq, arg) {
 			return $(jq[0]).datagrid('loadData', arg);
 		},
-//		load : function(jq, arg) {
-//			if (arg) {
-//				return $(jq[0]).datagrid('load', arg);
-//			} else {
-//				return $(jq[0]).datagrid('load');
-//			}
-//		},
+		load : function(jq, arg) {
+			if (arg) {
+				return $(jq[0]).datagrid('load', arg);
+			} else {
+				return $(jq[0]).datagrid('load');
+			}
+		},
 		resize : function(jq, arg) {
 			if (arg) {
 				return $(jq[0]).datagrid('resize', arg);
@@ -253,19 +253,19 @@
 		},
 		inputEventBind : function(jq, arg) {
 			return $(jq[0]).datagrid('inputEventBind');
-		},
-		load : function(jq, arg) {
-			var param = $(jq[0]).datagrid('options');
-			var queryParams = JSON.stringify(param.queryParams);
-			$_fn.ajax({
-				method : 'post',
-				contentType:"application/json",
-				url : param.url,
-				data : queryParams
-			}, function(result) {
-				return $(jq[0]).datagrid('loadData', result);
-			});
 		}
+//		load : function(jq, arg) {
+//			var param = $(jq[0]).datagrid('options');
+//			var queryParams = JSON.stringify(param.queryParams);
+//			$_fn.ajax({
+//				method : 'post',
+//				contentType:"application/json",
+//				url : param.url,
+//				data : queryParams
+//			}, function(result) {
+//				return $(jq[0]).datagrid('loadData', result);
+//			});
+//		}
 	}
 	
 	// 导出数据
