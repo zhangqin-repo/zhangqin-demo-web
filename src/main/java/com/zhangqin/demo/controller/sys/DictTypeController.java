@@ -38,7 +38,7 @@ public class DictTypeController extends BaseGeneralController {
 	@ResponseBody
 	public PageInfo<DictTypeVO> listPage(DictTypeQO qo){
 		@SuppressWarnings("unused")
-		List<DictTypeVO> list = dictTypeApi.findBaseCodeDictTypeList();
+		List<DictTypeVO> list = dictTypeApi.findList(qo);
 		return null;
 	}
 }

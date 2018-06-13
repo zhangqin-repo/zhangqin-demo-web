@@ -34,12 +34,12 @@ var page = {
 		var params = {
 			typeCode : '01',
 			typeName : '支付宝',
-			rules : [ {
-				field : "dictCode",
-				rule : "EQ"
+			nbsRules : [ {
+				property : "typeCode",
+				operator : "EQ"
 			}, {
-				field : "dictName",
-				rule : "LK"
+				property : "typeName",
+				operator : "LR"
 			} ]
 		};
 		
